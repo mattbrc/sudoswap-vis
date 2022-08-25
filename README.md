@@ -2,6 +2,8 @@
 
 This project is built with the sudoswap subgraph [sudoswap subgraph](https://github.com/0xmakesy/Sudoswap) which I forked and deployed to Goerli [here](https://thegraph.com/studio/subgraph/sudoswap-main/) to thegraph's studio.
 
+Stack: MongoDB, GraphQL, URQL, React, Node
+
 ## Sudoswap/Macro Bounty:
 ### Prize Amount
 3000 USDC
