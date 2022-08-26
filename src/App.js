@@ -1,14 +1,14 @@
 import "./App.css";
-import ProtocolStats from "./components/protocolStats";
-import Pairs from "./components/pairs";
+//import ProtocolStats from "./components/protocolStats";
+import VolumeChart from "./components/VolumeChart";
+// import Pairs from "./components/pairs";
 
 function App() {
   return (
     <div className="App">
-      <h1>SudoAMM Visualization</h1>
+      <h1>SudoAMM Visualization 🚀</h1>
       <div>
-        <ProtocolStats />
-        <Pairs />
+        <VolumeChart />
       </div>
     </div>
   );

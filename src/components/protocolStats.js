@@ -1,12 +1,13 @@
-import { client, query } from "../api.js";
+import { client, protocolData } from "../api.js";
 import { useEffect, useState } from "react";
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from "victory";
+import graphql2chartjs from "graphql2chartjs";
+import { Bar } from "react-chartjs-2";
 
 function ProtocolStats() {
   const [stats, setStats] = useState(null);
 
   async function fetchData() {
-    const response = await client.query(query).toPromise();
+    const response = await client.query(protocolData).toPromise();
     console.log("response", response);
     setStats(response.data.dailyETHProtocolStats);
   }
@@ -15,16 +16,10 @@ function ProtocolStats() {
     fetchData();
   }, []);
 
-  const testData = [
-    { quarter: 1, earnings: 18000 },
-    { quarter: 2, earnings: 13250 },
-    { quarter: 3, earnings: 15000 },
-    { quarter: 4, earnings: 12000 },
-  ];
-
   return (
     <div>
       <h2>Protocol Stats</h2>
+
       {stats?.map((stat, _index) => (
         <div key={_index}>
           <p>Date: {stat.dayString}</p>
@@ -37,20 +32,6 @@ function ProtocolStats() {
           </p>
         </div>
       ))}
-      <VictoryChart theme={VictoryTheme.material} domainPadding={20}>
-        <VictoryAxis
-          // tickValues specifies both the number of ticks and where
-          // they are placed on the axis
-          tickValues={[1, 2, 3, 4]}
-          tickFormat={["Quarter 1", "Quarter 2", "Quarter 3", "Quarter 4"]}
-        />
-        <VictoryAxis
-          dependentAxis
-          // tickFormat specifies how ticks should be displayed
-          tickFormat={(x) => `$${x / 1000}k`}
-        />
-        <VictoryBar data={testData} x="quarter" y="earnings" />
-      </VictoryChart>
     </div>
   );
 }
