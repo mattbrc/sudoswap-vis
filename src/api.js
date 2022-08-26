@@ -25,6 +25,13 @@ export const query = `
       approxProtocolFees
       swapVolumeETH
       dayTimestamp
+      approxPoolRevenue
     }
+    pairs(first: 5) {
+        owner
+        nft
+        spotPrice
+        ethLiquidity
+      }
   }
   `;
