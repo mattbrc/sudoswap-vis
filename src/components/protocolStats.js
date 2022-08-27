@@ -1,26 +1,39 @@
-import { client, protocolData } from "../api.js";
+import { useQuery, gql } from "@apollo/client";
 import { useEffect, useState } from "react";
-import graphql2chartjs from "graphql2chartjs";
-import { Bar } from "react-chartjs-2";
 
 function ProtocolStats() {
-  const [stats, setStats] = useState(null);
+  const GET_STATS = gql`
+    query GetStats {
+      dailyETHProtocolStats {
+        dayString
+        approxProtocolFees
+        swapVolumeETH
+        dayTimestamp
+        approxPoolRevenue
+      }
+    }
+  `;
 
-  async function fetchData() {
-    const response = await client.query(protocolData).toPromise();
-    console.log("response", response);
-    setStats(response.data.dailyETHProtocolStats);
+  const { loading, error, data } = useQuery(GET_STATS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :</p>;
+
+  const volumeETH = [];
+
+  for (let i = 0; i < 5; i++) {
+    var valueToPush = {};
+    valueToPush["volume"] =
+      Math.round(
+        (data.dailyETHProtocolStats[i].swapVolumeETH * 100) / 10 ** 18
+      ) / 100;
+    valueToPush["date"] = data.dailyETHProtocolStats[i].dayString;
+    volumeETH.push(valueToPush);
   }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
     <div>
-      <h2>Protocol Stats</h2>
-
-      {stats?.map((stat, _index) => (
+      {data.dailyETHProtocolStats.map((stat, _index) => (
         <div key={_index}>
           <p>Date: {stat.dayString}</p>
           <p>

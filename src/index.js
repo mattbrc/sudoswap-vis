@@ -9,6 +9,7 @@ import {
   ApolloProvider,
   gql,
 } from "@apollo/client";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const client = new ApolloClient({
   uri: "https://api.studio.thegraph.com/query/28082/sudoswap-main/v0.0.2",
@@ -34,9 +35,11 @@ client
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
+    <Router>
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
+    </Router>
   </React.StrictMode>
 );
 

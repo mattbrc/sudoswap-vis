@@ -1,14 +1,16 @@
 import "./App.css";
-//import ProtocolStats from "./components/protocolStats";
-import VolumeChart from "./components/VolumeChart";
-// import Pairs from "./components/pairs";
+//import ProtocolStats from "./components/ProtocolStats";
+import Home from "./components/Home";
+// import Pairs from "./components/Pairs";
+import Navbar from "./components/Navbar";
+import ProtocolStats from "./components/ProtocolStats";
 
 function App() {
   return (
     <div className="App">
-      <h1>SudoAMM Visualization 🚀</h1>
-      <div>
-        <VolumeChart />
+      <Navbar />
+      <div className="App-header">
+        <Home />
       </div>
     </div>
   );
