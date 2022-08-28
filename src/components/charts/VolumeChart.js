@@ -1,7 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import { VictoryLine, VictoryChart, VictoryTheme } from "victory";
-import "../App.css";
-import ProtocolStats from "./ProtocolStats";
+import "../../App.css";
 
 const GET_STATS = gql`
   query GetStats {
@@ -33,13 +32,9 @@ function Home() {
     volumeETH.push(valueToPush);
   }
 
-  // <h1>SudoAMM Visualization 🚀</h1>
-
   console.log("test arr", volumeETH);
   return (
     <div>
-      <h1 className="App-text">sudoswap visualization 🚀</h1>
-      <p className="App-sub-text">Recent Stats:</p>
       <VictoryChart theme={VictoryTheme.material}>
         <VictoryLine
           data={volumeETH} // data accessor for x values
