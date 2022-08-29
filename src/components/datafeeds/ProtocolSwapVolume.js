@@ -1,15 +1,23 @@
 import { useQuery, gql } from "@apollo/client";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-function ProtocolStats() {
+function ProtocolSwapVolume() {
   const GET_STATS = gql`
     query GetStats {
-      dailyETHProtocolStats {
+      dailyETHProtocolStats(first: 5) {
         dayString
         approxProtocolFees
         swapVolumeETH
         dayTimestamp
         approxPoolRevenue
+      }
+      dailyETHPoolStats(first: 5) {
+        id
+        dayTimestamp
+        dayString
+        nftContract
+        approxPoolFees
+        numSwaps
       }
     }
   `;
@@ -19,20 +27,8 @@ function ProtocolStats() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :</p>;
 
-  const volumeETH = [];
-
-  for (let i = 0; i < 5; i++) {
-    var valueToPush = {};
-    valueToPush["volume"] =
-      Math.round(
-        (data.dailyETHProtocolStats[i].swapVolumeETH * 100) / 10 ** 18
-      ) / 100;
-    valueToPush["date"] = data.dailyETHProtocolStats[i].dayString;
-    volumeETH.push(valueToPush);
-  }
-
   return (
-    <div>
+    <div className="Stats-text">
       {data.dailyETHProtocolStats.map((stat, _index) => (
         <div key={_index}>
           <p>Date: {stat.dayString}</p>
@@ -49,4 +45,4 @@ function ProtocolStats() {
   );
 }
 
-export default ProtocolStats;
+export default ProtocolSwapVolume;

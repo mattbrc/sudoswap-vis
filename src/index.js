@@ -9,7 +9,6 @@ import {
   ApolloProvider,
   gql,
 } from "@apollo/client";
-import { BrowserRouter as Router } from "react-router-dom";
 
 const client = new ApolloClient({
   uri: "https://api.studio.thegraph.com/query/28082/sudoswap-main/v0.0.2",
@@ -27,6 +26,14 @@ client
           dayTimestamp
           approxPoolRevenue
         }
+        dailyETHPoolStats(first: 5) {
+          id
+          dayTimestamp
+          dayString
+          nftContract
+          approxPoolFees
+          numSwaps
+        }
       }
     `,
   })
@@ -35,11 +42,9 @@ client
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Router>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
-    </Router>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>
 );
 

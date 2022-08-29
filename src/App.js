@@ -1,11 +1,21 @@
 import "./App.css";
-import HomeContent from "./components/HomeContent";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Pools from "./pages/Pools";
+import Swaps from "./pages/Swaps";
+import ProtocolData from "./pages/ProtocolData";
 
 function App() {
   return (
-    <div>
-      <HomeContent />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/pools" element={<Pools />} />
+        <Route path="/swaps" element={<Swaps />} />
+        <Route path="/data" element={<ProtocolData />} />
+      </Routes>
+    </Router>
   );
 }
 

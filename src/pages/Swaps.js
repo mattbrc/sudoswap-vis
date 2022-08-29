@@ -1,20 +1,20 @@
-// import Home from "./Home.js";
-import Navbar from "./Navbar.js";
-import VolumeChart from "./charts/VolumeChart.js";
-// import ProtocolStats from "./datafeeds/ProtocolStats.js";
+import React from "react";
+import Navbar from "../components/Navbar.js";
 import "../App.css";
 import twitterLogo from "../assets/twitter-logo.svg";
 
 const TWITTER_HANDLE = "matt_brc";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
-function HomeContent() {
+const Swaps = () => {
   return (
     <div className="App">
       <div className="App-header">
         <Navbar />
-        <h1 className="App-text">sudoswap visualization 🚀</h1>
-        <VolumeChart />
+        <h1 className="App-text">Swaps</h1>
+        <p>
+          Swap volume, top NFT swaps by contract/volume, best Arbs available
+        </p>
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
@@ -27,6 +27,6 @@ function HomeContent() {
       </div>
     </div>
   );
-}
+};
 
-export default HomeContent;
+export default Swaps;

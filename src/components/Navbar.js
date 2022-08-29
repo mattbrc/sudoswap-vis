@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
+import Box from "@material-ui/core/Box";
 
 // header font jetbrainsmono - 400
 // regular text font : rubik 400 / 700
@@ -26,8 +27,8 @@ const headersData = [
     href: "/pools",
   },
   {
-    label: "My Account",
-    href: "/account",
+    label: "Protocol Data",
+    href: "/data",
   },
 ];
 
@@ -92,7 +93,9 @@ export default function Navbar() {
 
   return (
     <header>
-      <AppBar className={header}>{displayDesktop()}</AppBar>
+      <Box>
+        <AppBar className={header}>{displayDesktop()}</AppBar>
+      </Box>
     </header>
   );
 }

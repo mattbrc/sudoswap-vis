@@ -1,20 +1,22 @@
-// import Home from "./Home.js";
-import Navbar from "./Navbar.js";
-import VolumeChart from "./charts/VolumeChart.js";
-// import ProtocolStats from "./datafeeds/ProtocolStats.js";
+import React from "react";
+import Navbar from "../components/Navbar.js";
 import "../App.css";
 import twitterLogo from "../assets/twitter-logo.svg";
+import ProtocolSwapVolume from "../components/datafeeds/ProtocolSwapVolume.js";
 
 const TWITTER_HANDLE = "matt_brc";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
-function HomeContent() {
+const ProtocolData = () => {
   return (
     <div className="App">
       <div className="App-header">
         <Navbar />
-        <h1 className="App-text">sudoswap visualization 🚀</h1>
-        <VolumeChart />
+        <h1 className="App-text">Protocol Data</h1>
+        <p className="App-sub-text">
+          Volume, Users, Collections, Taker Actions (buy/sell/swap)
+        </p>
+        <ProtocolSwapVolume />
         <div className="footer-container">
           <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
           <a
@@ -27,6 +29,6 @@ function HomeContent() {
       </div>
     </div>
   );
-}
+};
 
-export default HomeContent;
+export default ProtocolData;
