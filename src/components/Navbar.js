@@ -68,9 +68,11 @@ export default function Navbar() {
   };
 
   const sudoLogo = (
-    <Typography className={logo} variant="h6" component="h1">
-      sudoamm vis 🚀
-    </Typography>
+    <Button href="/">
+      <Typography className={logo} variant="h6" component="h1">
+        sudoamm vis 🚀
+      </Typography>
+    </Button>
   );
 
   const getMenuButtons = () => {

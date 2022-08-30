@@ -1,9 +1,39 @@
 import { useQuery } from "@apollo/client";
-import { VictoryLine, VictoryChart, VictoryTheme } from "victory";
 import "../../App.css";
 import { GET_STATS } from "../../constants.js";
+import { AgGridReact } from "ag-grid-react";
+import { useState, useEffect, useMemo } from "react";
+import "ag-grid-community/styles/ag-grid.css";
+import "ag-grid-community/styles/ag-theme-alpine.css";
 
-function Home() {
+function VolumeChart() {
+  const [rowData, setRowData] = useState([
+    { make: "Ford", model: "Focus", price: 40000 },
+    { make: "Toyota", model: "Celica", price: 45000 },
+    { make: "BMW", model: "435i", price: 55000 },
+  ]);
+
+  const [columnDefs, setColumnDefs] = useState([
+    { field: "make" },
+    { field: "model" },
+    { field: "price" },
+  ]);
+
+  useEffect(() => {
+    fetch("https://www.ag-grid.com/example-assets/row-data.json")
+      .then((result) => result.json())
+      .then((rowData) => setRowData(rowData));
+  }, []);
+
+  const defaultColDef = useMemo(
+    () => ({
+      sortable: true,
+      filter: true,
+      resizable: true,
+    }),
+    []
+  );
+
   const { loading, error, data } = useQuery(GET_STATS);
 
   if (loading) return <p>Loading...</p>;
@@ -11,31 +41,31 @@ function Home() {
 
   const volumeETH = [];
 
+  const volumeDefs = [
+    { field: "contract" },
+    { field: "date" },
+    { field: "number of swaps" },
+  ];
+
   for (let i = 0; i < 5; i++) {
     var valueToPush = {};
-    valueToPush["volume"] =
-      Math.round(
-        (data.dailyETHProtocolStats[i].swapVolumeETH * 100) / 10 ** 18
-      ) / 100;
-    valueToPush["date"] = data.dailyETHProtocolStats[i].dayString;
+    valueToPush["contract"] = data.dailyETHPoolStats[i].nftContract;
+    valueToPush["date"] = data.dailyETHPoolStats[i].dayString;
+    valueToPush["number of swaps"] = data.dailyETHPoolStats[i].numSwaps;
     volumeETH.push(valueToPush);
   }
 
   console.log("test arr", volumeETH);
+
   return (
-    <div>
-      <VictoryChart theme={VictoryTheme.material}>
-        <VictoryLine
-          data={volumeETH} // data accessor for x values
-          x="date"
-          // data accessor for y values
-          y="volume"
-          height={50}
-          width={50}
-        />
-      </VictoryChart>
+    <div className="ag-theme-alpine-dark" style={{ height: 500, width: 600 }}>
+      <AgGridReact
+        rowData={volumeETH}
+        columnDefs={volumeDefs}
+        defaultColDef={defaultColDef}
+      />
     </div>
   );
 }
 
-export default Home;
+export default VolumeChart;

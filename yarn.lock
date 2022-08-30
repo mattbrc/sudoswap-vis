@@ -3119,6 +3119,18 @@ aes-js@3.0.0:
   resolved "https://registry.npmjs.org/aes-js/-/aes-js-3.0.0.tgz"
   integrity sha512-H7wUZRn8WpTq9jocdxQ2c8x2sKo9ZVmzfRE13GiNJXfp7NcKYEdvl3vspKjXox6RIG2VtaRe4JFvxG4rqp2Zuw==
 
+ag-grid-community@^28.1.1:
+  version "28.1.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-28.1.1.tgz#68b849ecf4c0849faa8e012003afb0923ee00d69"
+  integrity sha512-WqWELTVXMrFHnyLHhD8HqMzrns+rjMuaOWcnLY+uO+j2jFN9QEasXPdT8zepNbNeUaIdCt1f1Q9Ipx0U1evNvQ==
+
+ag-grid-react@^28.1.1:
+  version "28.1.1"
+  resolved "https://registry.yarnpkg.com/ag-grid-react/-/ag-grid-react-28.1.1.tgz#c9bc1df2d09e7b7b3e51461881eb4a938e80b1f4"
+  integrity sha512-K1RUWNCKgwxeh6Y4Wb5LD6dVYyAbduH3tAd0ketVcVij2gruLVlvZdtT2HwHjeDvyyp0oqGqZVT2oik6+rZFTQ==
+  dependencies:
+    prop-types "^15.8.1"
+
 agent-base@6:
   version "6.0.2"
   resolved "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz"
@@ -3824,14 +3836,9 @@ cliui@^7.0.2:
     strip-ansi "^6.0.0"
     wrap-ansi "^7.0.0"
 
-clsx@^1.0.4:
+clsx@^1.0.4, clsx@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz"
-  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
-
-clsx@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
   integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
 
 co@^4.6.0:
