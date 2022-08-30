@@ -1,27 +1,8 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
+import { GET_STATS } from "../../constants.js";
 // import { useEffect, useState } from "react";
 
 function ProtocolSwapVolume() {
-  const GET_STATS = gql`
-    query GetStats {
-      dailyETHProtocolStats(first: 5) {
-        dayString
-        approxProtocolFees
-        swapVolumeETH
-        dayTimestamp
-        approxPoolRevenue
-      }
-      dailyETHPoolStats(first: 5) {
-        id
-        dayTimestamp
-        dayString
-        nftContract
-        approxPoolFees
-        numSwaps
-      }
-    }
-  `;
-
   const { loading, error, data } = useQuery(GET_STATS);
 
   if (loading) return <p>Loading...</p>;

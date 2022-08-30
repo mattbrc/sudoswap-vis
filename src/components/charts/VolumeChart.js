@@ -1,18 +1,7 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { VictoryLine, VictoryChart, VictoryTheme } from "victory";
 import "../../App.css";
-
-const GET_STATS = gql`
-  query GetStats {
-    dailyETHProtocolStats {
-      dayString
-      approxProtocolFees
-      swapVolumeETH
-      dayTimestamp
-      approxPoolRevenue
-    }
-  }
-`;
+import { GET_STATS } from "../../constants.js";
 
 function Home() {
   const { loading, error, data } = useQuery(GET_STATS);

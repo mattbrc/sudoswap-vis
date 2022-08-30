@@ -34,9 +34,10 @@
   color: #61dafb;
 }
 
-.twitter-logo {
-  width: 35px;
-  height: 35px;
+.github-logo {
+  width: 28px;
+  height: 28px;
+  padding: 5px;
 }
 
 .footer-text {
@@ -60,4 +61,8 @@
   font-style: normal;
   color: white;
   font-size: 16px;
+}
+
+.Datagrid-text {
+  color: #ffffff;
 }
