@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar.js";
 import Footer from "../components/Footer.js";
 import "../App.css";
-import DailyEthPoolStats from "../components/datafeeds/DailyEthPoolStats";
+import PoolChart from "../components/charts/PoolChart.js";
 
 const Pools = () => {
   return (
@@ -10,8 +10,8 @@ const Pools = () => {
       <div className="App-header">
         <Navbar />
         <h1 className="App-text">Pools</h1>
-        <p>Pools created, top pools by volume/balance, bonding curves</p>
-        <DailyEthPoolStats />
+        <p>Recent Pool Data</p>
+        <PoolChart />
         <Footer />
       </div>
     </div>

@@ -2,18 +2,19 @@ import React from "react";
 import Navbar from "../components/Navbar.js";
 import Footer from "../components/Footer.js";
 import "../App.css";
-import ProtocolSwapVolume from "../components/datafeeds/ProtocolSwapVolume.js";
+import ArbChart from "../components/charts/ArbChart";
 
 const ProtocolData = () => {
   return (
     <div className="App">
       <div className="App-header">
         <Navbar />
-        <h1 className="App-text">Protocol Data</h1>
+        <h1 className="App-text">Arbs</h1>
         <p className="App-sub-text">
-          Volume, Users, Collections, Taker Actions (buy/sell/swap)
+          Potential arbitrage between Sudoswap spot price and market floor price
+          (from Opensea API)
         </p>
-        <ProtocolSwapVolume />
+        <ArbChart />
         <Footer />
       </div>
     </div>

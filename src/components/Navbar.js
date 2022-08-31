@@ -19,16 +19,12 @@ const headersData = [
     href: "/",
   },
   {
-    label: "Swaps",
-    href: "/swaps",
-  },
-  {
     label: "Pools",
     href: "/pools",
   },
   {
-    label: "Protocol Data",
-    href: "/data",
+    label: "Arbs",
+    href: "/arbs",
   },
 ];
 

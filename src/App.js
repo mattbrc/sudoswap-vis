@@ -3,8 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Pools from "./pages/Pools";
-import Swaps from "./pages/Swaps";
-import ProtocolData from "./pages/ProtocolData";
+import Arbs from "./pages/Arbs";
 
 function App() {
   return (
@@ -12,8 +11,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/pools" element={<Pools />} />
-        <Route path="/swaps" element={<Swaps />} />
-        <Route path="/data" element={<ProtocolData />} />
+        <Route path="/arbs" element={<Arbs />} />
       </Routes>
     </Router>
   );

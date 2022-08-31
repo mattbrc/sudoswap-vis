@@ -11,7 +11,7 @@ function HomeContent() {
       <div className="App-header">
         <Navbar />
         <h1 className="App-text">sudoswap visualization 🚀</h1>
-        <p>Daily ETH Pool Stats</p>
+        <p>Recent Protocol Stats</p>
         <VolumeChart />
         <Footer />
       </div>

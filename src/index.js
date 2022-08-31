@@ -19,20 +19,36 @@ client
   .query({
     query: gql`
       query GetStats {
-        dailyETHProtocolStats(first: 10) {
+        dailyETHProtocolStats(first: 100) {
           dayString
-          approxProtocolFees
+          numSwaps
           swapVolumeETH
-          dayTimestamp
+          approxProtocolFees
           approxPoolRevenue
+          nftsDeposited
+          nftsWithdrawn
+          numBuys
+          numSells
         }
-        dailyETHPoolStats(first: 5) {
-          id
-          dayTimestamp
+        dailyETHPoolStats(orderBy: dayString, orderDirection: desc, first: 10) {
           dayString
           nftContract
-          approxPoolFees
           numSwaps
+          swapVolumeETH
+          approxPoolFees
+          approxPoolRevenue
+          ethDeposited
+          ethWithdrawn
+          nftsDeposited
+          nftsWithdrawn
+          numBuys
+          numSells
+        }
+        spotPriceUpdates(orderBy: timestamp, orderDirection: desc, first: 10) {
+          nft
+          pair
+          newSpotPrice
+          timestamp
         }
       }
     `,
