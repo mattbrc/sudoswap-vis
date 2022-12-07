@@ -2,7 +2,7 @@
 
 This project is built with the sudoswap subgraph [sudoswap subgraph](https://github.com/0xmakesy/Sudoswap) which I forked and deployed to Goerli [here](https://testnet.thegraph.com/subgraph?id=9UgbYFqR2Vz66D37BzpHpPtcMT8rtLPDsSgSLLGmBrKD&view=Overview) to thegraph's studio.
 
-Stack: The Graph Protocol, GraphQL, Apollo, React, Node, JS
+Stack: The Graph Protocol, GraphQL, Apollo, React, Node.
 
 ## Sudoswap/Macro Bounty:
 
